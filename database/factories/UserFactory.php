@@ -23,13 +23,18 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $fakeDateTime = fake()->dateTimeThisYear->format('Y-m-d H:i:s');
         return [
-            'first_name' => fake()->firstName(),
-			'last_name' => fake()->lastName(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'role' => 'customer',
+            'first_name' => fake('vi_VN')->firstName(),
+            'last_name' => fake('vi_VN')->lastName(),
+            'email' => fake('vi_VN')->unique()->safeEmail(),
+            'phone' => fake()->regexify('0[35789][0-9]{8}'),
             'password' => static::$password ??= Hash::make('password'),
+            'email_verified_at' => now(),
             'remember_token' => Str::random(10),
+            'created_at' => $fakeDateTime,
+            'updated_at' => $fakeDateTime,
         ];
     }
 
@@ -38,7 +43,7 @@ class UserFactory extends Factory
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
     }
