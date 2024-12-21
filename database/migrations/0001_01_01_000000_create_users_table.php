@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 
@@ -14,18 +13,20 @@ return new class extends Migration {
 	{
 		Schema::create('users', function (Blueprint $table) {
 			$table->uuid('id')->primary();
+			$table->enum('role', ['customer', 'admin'])
+				  ->default('customer');
 			$table->string('first_name', 50);
 			$table->string('last_name', 50);
 			$table->string('email', 50)->unique();
 			$table->string('phone', 10)->unique();
 			$table->string('password');
-			$table->string('avatar')->default('https://ui-avatars.com/api/?name=Web+Pub&color=7F9CF5&background=EBF4FF');
+			$table->string('avatar')
+				  ->default('https://ui-avatars.com/api/?name=Web+Pub');
 			$table->dateTime('email_verified_at')->nullable();
 			$table->rememberToken();
 			$table->dateTime('created_at')->useCurrent();
 			$table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
 			$table->dateTime('deleted_at')->nullable();
-			DB::statement('ALTER TABLE users ADD CONSTRAINT chk_phone CHECK (phone ~ \'^0[35789][0-9]{8}$\')');
 		});
 		
 		Schema::create('password_reset_tokens', function (Blueprint $table) {
