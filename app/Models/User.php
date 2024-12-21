@@ -3,14 +3,20 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasUuids, HasFactory, Notifiable;
+
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +24,13 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'role',
+        'first_name',
+        'last_name',
         'email',
+        'phone',
         'password',
+        'avatar',
     ];
 
     /**
@@ -32,6 +42,12 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+    public function addresses(): HasMany
+    {
+        return $this->hasMany(Address::class);
+    }
 
     /**
      * Get the attributes that should be cast.
