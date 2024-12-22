@@ -17,7 +17,7 @@ return new class extends Migration {
 				  ->onDelete('cascade')
 				  ->onUpdate('cascade');
 			$table->unsignedSmallInteger('rating');
-			$table->text('comment')->nullable();
+			$table->text('comment', 500)->nullable();
 			$table->dateTime('created_at')->useCurrent();
 			$table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
 			$table->dateTime('deleted_at')->nullable();

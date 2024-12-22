@@ -18,7 +18,6 @@ return new class extends Migration {
 			$table->string('first_name', 50);
 			$table->string('last_name', 50);
 			$table->string('email', 50)->unique();
-			$table->string('phone', 10)->unique();
 			$table->string('password');
 			$table->string('avatar')
 				  ->default('https://ui-avatars.com/api/?name=Web+Pub');

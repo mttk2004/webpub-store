@@ -9,7 +9,7 @@ return new class extends Migration {
 	public function up(): void
 	{
 		Schema::create('cart_items', function (Blueprint $table) {
-			$table->id();
+			$table->id()->startingValue(10000);
 			$table->uuid('cart_id');
 			$table->uuid('book_id');
 			$table->unsignedInteger('quantity')->default(1);

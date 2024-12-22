@@ -14,6 +14,12 @@ return new class extends Migration {
 			$table->decimal('total_amount', 15, 2);
 			$table->dateTime('created_at')->useCurrent();
 			$table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
+			
+			$table->foreign('user_id')
+				  ->references('id')
+				  ->on('users')
+				  ->onDelete('cascade')
+				  ->onUpdate('cascade');
 		});
 	}
 	
