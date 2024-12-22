@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Address extends Model
 {
-	use HasUuids, HasFactory, SoftDeletes;
+	use HasFactory, SoftDeletes;
 	
 	
 	protected $fillable
@@ -34,6 +34,9 @@ class Address extends Model
 	{
 		return [
 				'is_primary' => 'boolean',
+				'created_at' => 'datetime',
+				'updated_at' => 'datetime',
+				'deleted_at' => 'datetime',
 		];
 	}
 }

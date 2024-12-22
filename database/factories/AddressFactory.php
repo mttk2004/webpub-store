@@ -16,14 +16,10 @@ class AddressFactory extends Factory
 	public function definition(): array
 	{
 		return [
-				'address_line_1' => $this->faker->address(),
-				'address_line_2' => $this->faker->address(),
-				'city' => $this->faker->city(),
-				'phone' => $this->faker->phoneNumber(),
-				'is_primary' => $this->faker->boolean(),
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now(),
-				
+				'address_line_1' => fake('vi_VN')->streetAddress(),
+				'city' => fake('vi_VN')->city(),
+				'phone' => fake('vi_VN')->regexify('0[35789][0-9]{8}'),
+				'is_primary' => true,
 				'user_id' => User::factory(),
 		];
 	}
