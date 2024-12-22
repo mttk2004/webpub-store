@@ -16,10 +16,7 @@ class CartFactory extends Factory
 	public function definition(): array
 	{
 		return [
-				'total_amount' => $this->faker->randomFloat(),
-				'updated_at' => Carbon::now(),
-				
-				'user_id' => User::factory(),
+				'total_amount' => 0,
 		];
 	}
 }
