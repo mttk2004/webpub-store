@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'petrona';
+    src: url('./Petrona/Petrona-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'raleway';
+    src: url('./Raleway/Raleway-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+}
+
+body {
+    font-family: 'raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1.125rem;
+}
+
+
+.petrona {
+    font-family: 'petrona', sans-serif;
+}
