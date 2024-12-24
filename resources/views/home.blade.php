@@ -12,7 +12,11 @@
 <body>
     <h1 class='text-red-500 font-black text-2xl'>Hello World</h1>
     <p>Con mèo mà trèo cây cao</p>
-
+    @auth
+        <p>Hello, {{ auth()->user()->email }}</p>
+    @else
+        <p>Hello, guest</p>
+    @endauth
 </body>
 
 </html>
