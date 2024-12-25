@@ -8,45 +8,69 @@
 
 import $ from 'jquery';
 
+function closeFlyoutContent(trigger, content) {
+	content.removeClass('opacity-100 translate-y-0')
+				 .addClass('opacity-0 translate-y-3 invisible');
+	trigger.removeClass('text-brand-700').addClass('text-gray-900');
+}
+
+function openFlyoutContent(trigger, content) {
+	content.removeClass('invisible opacity-0 translate-y-3')
+				 .addClass('opacity-100 translate-y-0');
+	trigger.addClass('text-brand-700').removeClass('text-gray-900');
+}
 
 $(document).ready(function () {
-	$('.flyout-toggle').on('click', function (event) {
-		event.stopPropagation(); // Prevent the click event from bubbling up to the document
-		const $menu = $(this).next('.flyout .absolute');
-		$('.flyout .absolute').not($menu).addClass('hidden'); // Hide all other menus
-		$menu.toggleClass('hidden'); // Toggle the clicked menu
-		if ($menu.hasClass('hidden')) {
-			$(this).removeClass('text-brand-700'); // Remove 'text-brand-700' class if menu is hidden
-		}
-		else {
-			$('.flyout-toggle').removeClass('text-brand-700'); // Remove 'text-brand-700' class from all
-																												 // toggles
-			$(this).addClass('text-brand-700'); // Add 'text-brand-700' class to the clicked toggle
-		}
+	const flyouts = $('.flyout');
+	
+	flyouts.each(function () {
+		const flyout = $(this);
+		const flyoutTrigger = flyout.find('.flyout-trigger');
+		const flyoutContent = flyout.find('.flyout-content');
+		
+		flyoutTrigger.off('click').on('click', function () {
+			// close other flyouts
+			flyouts.each(function () {
+				const otherFlyout = $(this);
+				if (otherFlyout[0] !== flyout[0]) {
+					const otherFlyoutContent = otherFlyout.find('.flyout-content');
+					closeFlyoutContent(otherFlyout.find('.flyout-trigger'), otherFlyoutContent);
+				}
+			});
+			
+			if (flyoutContent.hasClass('invisible')) {
+				openFlyoutContent(flyoutTrigger, flyoutContent);
+			} else {
+				closeFlyoutContent(flyoutTrigger, flyoutContent);
+			}
+		});
 	});
 	
-	$(document).on('click', function (event) {
-		if (!$(event.target).closest('.flyout').length) {
-			$('.flyout .absolute').addClass('hidden');
-			$('.flyout-toggle').removeClass('text-brand-700'); // Remove 'text-brand-700' class from all
-																												 // toggles
+	// if click outside flyout, close all flyouts
+	$(document).off('click').on('click', function (e) {
+		if (!$(e.target).closest('.flyout').length) {
+			flyouts.each(function () {
+				const flyout = $(this);
+				const flyoutContent = flyout.find('.flyout-content');
+				closeFlyoutContent(flyout.find('.flyout-trigger'), flyoutContent);
+			});
 		}
 	});
 	
 	const helperBg = $('.helper-bg');
 	
-	$('.mobile-menu-close').on('click', function () {
+	$('.mobile-menu-close').off('click').on('click', function () {
 		$('.mobile-menu').addClass('translate-x-[700px]');
-		helperBg.addClass('hidden');
-	})
+		helperBg.addClass('invisible backdrop-blur-0').removeClass('backdrop-blur-sm');
+	});
 	
 	$('.mobile-menu-open').on('click', function () {
 		$('.mobile-menu').toggleClass('translate-x-[700px]');
-		helperBg.removeClass('hidden');
+		helperBg.removeClass('invisible backdrop-blur-0').addClass('backdrop-blur-sm');
 	});
 	
 	helperBg.on('click', function () {
 		$('.mobile-menu').addClass('translate-x-[700px]');
-		helperBg.addClass('hidden');
+		helperBg.addClass('invisible backdrop-blur-0').removeClass('backdrop-blur-sm');
 	});
 });

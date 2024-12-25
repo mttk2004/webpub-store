@@ -1,11 +1,11 @@
 <header class="bg-white">
   <nav class="flex items-center justify-between gap-12 px-6 py-4 lg:px-8" aria-label="Global">
-    <div class="flex lg:flex-1">
+    <div class="flex">
       <a href="#" class="-m-1.5 p-1.5">
         <span class="sr-only">Webpub</span>
         <img
             class="h-6 lg:h-8 w-auto" src="{{ Vite::asset('resources/images/webpub.webp') }}"
-            alt="webpub log">
+            alt="webpub logo">
       </a>
     </div>
     <div class="flex lg:hidden">
@@ -60,25 +60,56 @@
             focus:ring-brand-700 sm:text-sm sm:leading-6"
             placeholder="Tìm sách... (Alt + K)">
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-               stroke-linecap="round" stroke-linejoin="round" class="text-gray-500">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14
-            0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" />
+          <svg
+              xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" class="text-gray-500">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+                d="M10 10m-7 0a7 7 0 1 0 14
+            0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
           </svg>
         </div>
       </div>
       <x-modal-search />
     </div>
 
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a
-          href="{{ route('login') }}"
-          class="hover:text-brand-700 text-base font-medium leading-6 text-gray-900">
-        Đăng nhập
-        <span aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
+    @auth
+      <div class="hidden lg:flex lg:gap-x-8 items-center">
+        <div class="relative group cursor-pointer">
+          <span class="inline-flex justify-center items-center absolute -top-2.5 -right-3 h-5 w-6
+          bg-brand-700 rounded-full text-white text-sm font-bold group-hover:bg-brand-500">
+            <span class="-translate-y-[1px]">12</span>
+          </span>
+
+          <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" class="text-gray-800 group-hover:text-gray-600">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" />
+          </svg>
+        </div>
+
+        <x-flyout-menu
+            :title="auth()->user()->first_name" :items="[
+              ['name' => 'Thông tin cá nhân', 'url' => '#'],
+              ['name' => 'Đổi mật khẩu', 'url' => '#'],
+              ['name' => 'Đăng xuất', 'url' => route('logout'), 'method' => 'POST'],
+            ]" :position="'-left-6 top-6'" :hasRarr="false" :width="'w-44'" />
+      </div>
+    @else
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a
+            href="{{ route('login') }}"
+            class="hover:text-brand-700 text-base font-medium leading-6 text-gray-900">
+          Đăng nhập
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    @endauth
   </nav>
   <!-- Mobile menu, show/hide based on menu open state. -->
   <div
@@ -86,11 +117,12 @@
       role="dialog"
       aria-modal="true">
     <!-- Background backdrop, show/hide based on slide-over state. -->
-    <div class="fixed inset-0 z-[1] helper-bg hidden"></div>
+    <div class="fixed inset-0 z-[1] helper-bg transition-all ease-in-out duration-300
+    invisible backdrop-blur-0"></div>
     <div
         class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6
     sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 mobile-menu bg-white translate-x-[700px]
-    transition duration-300">
+    transition-all ease-in-out duration-300">
       <div class="flex items-center justify-between">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Webpub</span>

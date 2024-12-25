@@ -149,7 +149,7 @@
       </div>
       <div class="mt-8 text-xs leading-5 text-gray-600 font-medium md:order-1 md:mt-0">
         <p><a href="" target="_blank" class="text-brand-700">Mai Trần Tuấn Kiệt</a>
-           &mdash; made with love from <span class="text-brand-700">my loi</span></p>
+           &mdash; Built with love from làng Mỹ Lợi, Huế.</p>
         <p>&copy; {{ now()->year }} webpub, Inc. All rights reserved.</p>
       </div>
     </div>

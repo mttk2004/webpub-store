@@ -19,7 +19,7 @@ $(document).ready(function () {
 	
 	const open = () => {
 		searchModal.toggleClass('invisible');
-		modalBg.removeClass('opacity-0').addClass('opacity-100 backdrop-blur-[6px]');
+		modalBg.removeClass('opacity-0 backdrop-blur-0').addClass('opacity-100 backdrop-blur-[6px]');
 		modalPanel.removeClass('translate-y-8 scale-75 opacity-0')
 							.addClass('translate-y-0 scale-100 opacity-100');
 		inputToggle.blur();
@@ -27,8 +27,8 @@ $(document).ready(function () {
 	
 	const close = () => {
 		modalPanel.removeClass('translate-y-0 scale-100 opacity-100')
-							.addClass('translate-y-4 scale-75 opacity-0');
-		modalBg.removeClass('opacity-100 backdrop-blur-[6px]').addClass('opacity-0');
+							.addClass('translate-y-8 scale-75 opacity-0');
+		modalBg.removeClass('opacity-100 backdrop-blur-[6px]').addClass('opacity-0 backdrop-blur-0');
 		searchModal.toggleClass('invisible');
 		inputToggle.blur();
 	}
@@ -70,5 +70,4 @@ $(document).ready(function () {
 		event.stopPropagation();
 		close()
 	});
-	
 });
