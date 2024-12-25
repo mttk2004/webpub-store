@@ -37,4 +37,10 @@ class LoginController extends Controller
             return redirect()->back()->withErrors(['email' => 'Thông tin đăng nhập không chính xác'])->withInput();
         }
     }
+	
+	public function logout()
+	{
+		Auth::logout();
+		return redirect()->route('home');
+	}
 }
