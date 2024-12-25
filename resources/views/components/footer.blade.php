@@ -7,84 +7,84 @@
       <div class="mt-8 lg:mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
         <div class="md:grid md:grid-cols-2 md:gap-8">
           <div>
-            <h3 class="text-base font-semibold leading-6 text-gray-900">Ngôn ngữ</h3>
+            <h3 class="text-base font-medium leading-6 text-gray-700">Ngôn ngữ</h3>
             <ul role="list" class="mt-4 space-y-2">
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Java</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Java</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">C#</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">C#</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Python</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Python</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">PHP</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">PHP</a>
               </li>
             </ul>
           </div>
           <div class="mt-10 md:mt-0">
-            <h3 class="text-base font-semibold leading-6 text-gray-900">Công nghệ</h3>
+            <h3 class="text-base font-medium leading-6 text-gray-700">Công nghệ</h3>
             <ul role="list" class="mt-4 space-y-2">
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">React</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">React</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Django</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Django</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Laravel</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Laravel</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Angular</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Angular</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="md:grid md:grid-cols-2 md:gap-8">
           <div>
-            <h3 class="text-base font-semibold leading-6 text-gray-900">Về webpub</h3>
+            <h3 class="text-base font-medium leading-6 text-gray-700">Về webpub</h3>
             <ul role="list" class="mt-4 space-y-2">
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Giới thiệu</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Giới thiệu</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Liên hệ</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Liên hệ</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Đầu tư</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Đầu tư</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Chính sách</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Chính sách</a>
               </li>
             </ul>
           </div>
           <div class="mt-10 md:mt-0">
-            <h3 class="text-base font-semibold leading-6 text-gray-900">Khác</h3>
+            <h3 class="text-base font-medium leading-6 text-gray-700">Khác</h3>
             <ul role="list" class="mt-4 space-y-2">
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Cài đặt cookie</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Cài đặt cookie</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Quyền riêng tư</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Quyền riêng tư</a>
               </li>
               <li>
-                <a href="#" class="text-sm leading-6 text-gray-600 font-medium
-                hover:text-gray-900">Chính sách bảo mật</a>
+                <a href="#" class="text-sm leading-6 text-gray-500
+                hover:text-gray-700">Chính sách bảo mật</a>
               </li>
             </ul>
           </div>
@@ -93,10 +93,10 @@
     </div>
     <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
       <div>
-        <h3 class="text-base font-semibold leading-6 text-gray-900">
+        <h3 class="text-base font-medium leading-6 text-gray-700">
           Đăng ký nhận bản tin của chúng tôi
         </h3>
-        <p class="text-sm leading-6 text-gray-600 font-medium">
+        <p class="text-sm leading-6 text-gray-500">
           Tin tức về những cuốn sách mới được gửi tới hộp thư đến của bạn hàng tuần.
         </p>
       </div>
@@ -104,11 +104,11 @@
         <label for="email-address" class="sr-only">Email của bạn</label>
         <input type="email" name="email-address" id="email-address" autocomplete="email" required
                class="w-full min-w-0 appearance-none rounded-md border-0 bg-white px-3 py-1.5
-               text-base text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400
+               text-base text-gray-700 shadow-sm ring-1 ring-inset ring-gray-400
                placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-brand-700 sm:w-56 sm:text-sm sm:leading-6" placeholder="Email của bạn">
         <div class="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
           <button type="submit" class="flex w-full items-center justify-center rounded-md
-          bg-brand-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-600
+          bg-brand-700 px-3 py-2 text-sm text-white shadow-sm hover:bg-brand-600
           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
           focus-visible:outline-brand-700">Đăng ký</button>
         </div>
@@ -147,7 +147,7 @@
           </svg>
         </a>
       </div>
-      <div class="mt-8 text-xs leading-5 text-gray-600 font-medium md:order-1 md:mt-0">
+      <div class="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
         <p><a href="" target="_blank" class="text-brand-700">Mai Trần Tuấn Kiệt</a>
            &mdash; Built with love from làng Mỹ Lợi, Huế.</p>
         <p>&copy; {{ now()->year }} webpub, Inc. All rights reserved.</p>

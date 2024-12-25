@@ -23,8 +23,10 @@
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-8 items-center">
+      <a href="#" class="text-base leading-6 text-gray-700
+      hover:text-brand-700">Trang chủ</a>
       <x-flyout-menu
-          :title="'Ngôn ngữ'" :items="[
+          :items="[
           ['name' => 'Java', 'url' => '#'],
           ['name' => 'C#', 'url' => '#'],
           ['name' => 'PHP', 'url' => '#'],
@@ -34,19 +36,22 @@
           ['name' => 'CSS', 'url' => '#'],
           ['name' => 'Go', 'url' => '#'],
           ['name' => 'Ruby', 'url' => '#'],
-      ]" />
+      ]">
+        Ngôn ngữ
+      </x-flyout-menu>
       <x-flyout-menu
-          :title="'Công nghệ'" :items="[
+          :items="[
           ['name' => 'React', 'url' => '#'],
           ['name' => 'Vue', 'url' => '#'],
           ['name' => 'Angular', 'url' => '#'],
           ['name' => 'ASP.NET', 'url' => '#'],
           ['name' => 'Spring', 'url' => '#'],
           ['name' => 'Laravel', 'url' => '#'],
-      ]" />
-      <a
-          href="#" class="text-base font-medium leading-6 text-gray-900
-      hover:text-brand-700">Về chúng tôi</a>
+      ]">
+        Công nghệ
+      </x-flyout-menu>
+      <a href="#" class="text-base leading-6 text-gray-700
+      hover:text-brand-700">Bán chạy nhất</a>
     </div>
 
     <div class="hidden lg:flex items-center">
@@ -54,11 +59,11 @@
         <input
             id="modal-search-open"
             type="text"
-            class="inline-block w-48 rounded-md border-0 py-1 pr-10 text-gray-900 ring-1
+            class="inline-block w-48 rounded-md border-0 py-1 pr-10 text-gray-700 ring-1
             ring-inset
             ring-gray-400 placeholder:text-gray-500 focus:ring-2 focus:ring-inset
             focus:ring-brand-700 sm:text-sm sm:leading-6"
-            placeholder="Tìm sách... (Alt + K)">
+            placeholder="Tìm mọi thứ (Alt + K)">
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
           <svg
               xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -78,33 +83,45 @@
     @auth
       <div class="hidden lg:flex lg:gap-x-8 items-center">
         <div class="relative group cursor-pointer">
-          <span class="inline-flex justify-center items-center absolute -top-2.5 -right-3 h-5 w-6
+          <span
+              class="inline-flex justify-center items-center absolute -top-2.5 -right-3 h-5 w-6
           bg-brand-700 rounded-full text-white text-sm font-bold group-hover:bg-brand-500">
             <span class="-translate-y-[1px]">12</span>
           </span>
 
-          <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" class="text-gray-800 group-hover:text-gray-600">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <svg
+              xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" class="text-gray-700 group-hover:text-gray-500">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
             <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" />
+            <path d="M17 17h-11v-14h-2" />
+            <path d="M6 5l14 1l-1 7h-13" />
           </svg>
         </div>
 
         <x-flyout-menu
-            :title="auth()->user()->first_name" :items="[
+            :items="[
               ['name' => 'Thông tin cá nhân', 'url' => '#'],
+              ['name' => 'Đơn hàng của tôi', 'url' => '#'],
+              ['name' => 'Địa chỉ nhận hàng', 'url' => '#'],
+              ['name' => 'Đổi avatar', 'url' => '#'],
               ['name' => 'Đổi mật khẩu', 'url' => '#'],
-              ['name' => 'Đăng xuất', 'url' => route('logout'), 'method' => 'POST'],
-            ]" :position="'-left-6 top-6'" :hasRarr="false" :width="'w-44'" />
+              ['name' => 'Đăng xuất', 'url' => route('logout'), 'method' => 'POST',
+                'style' => 'text-brand-700'
+              ],
+            ]" :position="'-left-10 top-6'" :hasRarr="false" :width="'w-44'" :hasDarr="false">
+          <x-avatar alt="{{ auth()->user()->first_name }}'s Avatar" src="{{auth()->user()
+          ->avatar}}" />
+        </x-flyout-menu>
+
       </div>
     @else
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div class="hidden lg:flex lg:justify-end">
         <a
             href="{{ route('login') }}"
-            class="hover:text-brand-700 text-base font-medium leading-6 text-gray-900">
+            class="hover:text-brand-700 text-base leading-6 text-gray-700">
           Đăng nhập
           <span aria-hidden="true">&rarr;</span>
         </a>
@@ -117,7 +134,8 @@
       role="dialog"
       aria-modal="true">
     <!-- Background backdrop, show/hide based on slide-over state. -->
-    <div class="fixed inset-0 z-[1] helper-bg transition-all ease-in-out duration-300
+    <div
+        class="fixed inset-0 z-[1] helper-bg transition-all ease-in-out duration-300
     invisible backdrop-blur-0"></div>
     <div
         class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6
@@ -143,22 +161,22 @@
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-1 py-6">
             <a
-                href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7
-            text-gray-900 hover:bg-gray-50">Product</a>
+                href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm leading-7
+            text-gray-700 hover:bg-gray-50">Product</a>
             <a
-                href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7
-            text-gray-900 hover:bg-gray-50">Features</a>
+                href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm leading-7
+            text-gray-700 hover:bg-gray-50">Features</a>
             <a
-                href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7
-            text-gray-900 hover:bg-gray-50">Marketplace</a>
+                href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm leading-7
+            text-gray-700 hover:bg-gray-50">Marketplace</a>
             <a
-                href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7
-            text-gray-900 hover:bg-gray-50">Company</a>
+                href="#" class="-mx-3 block rounded-lg px-3 py-2 text-sm leading-7
+            text-gray-700 hover:bg-gray-50">Company</a>
           </div>
           <div class="py-6">
             <a
-                href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-sm font-medium leading-7
-            text-gray-900 hover:bg-gray-50">Đăng nhập</a>
+                href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-sm leading-7
+            text-gray-700 hover:bg-gray-50">Đăng nhập</a>
           </div>
         </div>
       </div>
