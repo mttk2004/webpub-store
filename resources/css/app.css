@@ -4,18 +4,18 @@
 
 @font-face {
     font-family: 'petrona';
-    src: url('./Petrona/Petrona-VariableFont_wght.ttf') format('truetype');
+    src: url('../fonts/Petrona/Petrona-VariableFont_wght.ttf') format('truetype');
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'raleway';
-    src: url('./Raleway/Raleway-VariableFont_wght.ttf') format('truetype');
+    font-family: 'kiet';
+    src: url('../fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf') format('truetype');
     font-style: normal;
 }
 
 body {
-    font-family: 'raleway', sans-serif;
+    font-family: 'kiet', sans-serif;
     font-weight: 400;
     font-size: 1.125rem;
 }
