@@ -11,13 +11,13 @@ import $ from 'jquery';
 function closeFlyoutContent(trigger, content) {
 	content.removeClass('opacity-100 translate-y-0')
 				 .addClass('opacity-0 translate-y-3 invisible');
-	trigger.removeClass('text-brand-700').addClass('text-gray-900');
+	trigger.removeClass('text-brand-700').addClass('text-gray-700');
 }
 
 function openFlyoutContent(trigger, content) {
 	content.removeClass('invisible opacity-0 translate-y-3')
 				 .addClass('opacity-100 translate-y-0');
-	trigger.addClass('text-brand-700').removeClass('text-gray-900');
+	trigger.addClass('text-brand-700').removeClass('text-gray-700');
 }
 
 $(document).ready(function () {
