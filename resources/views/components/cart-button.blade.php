@@ -2,7 +2,7 @@
           <span
               class="inline-flex justify-center items-center absolute -top-2 -right-3 h-5 w-6
           bg-brand-700 rounded-full text-white text-sm font-bold group-hover:bg-brand-500">
-            <span class="-translate-y-[1px]">12</span>
+            <span class="-translate-y-[1px]">{{ $cart?->cartItems->count() }}</span>
           </span>
 
   <svg
