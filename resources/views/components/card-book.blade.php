@@ -1,7 +1,8 @@
-<div class="min-w-36 max-w-64 border-2 border-gray-200 p-1.5 sm:p-2 lg:p-3 rounded">
+<div class="min-w-36 max-w-64 border-2 border-gray-200 p-1.5 sm:p-2 lg:p-3 rounded
+            hover:shadow-lg">
   <a href="#" class="block relative cursor-pointer">
     <div class="relative flex justify-center items-center overflow-hidden">
-      <span class=" min-h-36 max-h-48 aspect-[3/4] mx-auto my-auto">
+      <span class="min-h-36 max-h-48 aspect-[3/4] mx-auto my-auto">
         <img
             src="https://content.packt.com/_/image/original/B18468/cover_image.jpg"
             alt="Front of zip and black zipper pulls."

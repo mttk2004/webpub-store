@@ -96,4 +96,22 @@
       </div>
     </div>
   </section>
+
+  <x-container class="py-12">
+    <x-section-heading
+        title="Tin tức"
+        subtitle="Những tin tức mới nhất về công nghệ và phát triển web."
+    />
+
+    <x-carousel gap="8" loop="true">
+      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
+      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
+      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
+      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
+      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
+      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
+      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
+
+    </x-carousel>
+  </x-container>
 </x-layout>
