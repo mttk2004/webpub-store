@@ -4,10 +4,11 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Guest\BookController;
 use App\Http\Controllers\Guest\CategoryController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::view('/', 'home')->name('home');
+Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::group(['middleware' => 'guest'], function () {
 	// Đăng nhập và đăng ký
