@@ -12,24 +12,22 @@ return new class extends Migration {
 	public function up(): void
 	{
 		Schema::create('users', function (Blueprint $table) {
-			$table->uuid('id')->primary();
-			$table->enum('role', ['customer', 'admin'])
-				  ->default('customer');
+			$table->bigInteger('id')->unsigned()->primary(); // Snowflake ID (64 bit)
+			$table->enum('role', ['customer', 'admin'])->default('customer');
 			$table->string('first_name', 50);
 			$table->string('last_name', 50);
-			$table->string('email', 50)->unique();
+			$table->string('email', 100)->unique();
 			$table->string('password');
-			$table->string('avatar')
-				  ->default('https://ui-avatars.com/api/?name=Web+Pub');
-			$table->dateTime('email_verified_at')->nullable();
-			$table->rememberToken();
-			$table->dateTime('created_at')->useCurrent();
-			$table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
-			$table->dateTime('deleted_at')->nullable();
+			$table->string('avatar')->nullable();
+			$table->timestamp('email_verified_at')->nullable();
+			$table->rememberToken()->nullable();
+			$table->timestamp('created_at')->useCurrent();
+			$table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+			$table->softDeletes();
 		});
 		
 		Schema::create('password_reset_tokens', function (Blueprint $table) {
-			$table->string('email')->primary();
+			$table->string('email', 100)->primary();
 			$table->string('token');
 			$table->timestamp('created_at')->nullable();
 		});
