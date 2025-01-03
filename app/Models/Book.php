@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\App;
 
@@ -51,5 +52,10 @@ class Book extends Model
 		return [
 				'publication_date' => 'date',
 		];
+	}
+	
+	public function authors(): BelongsToMany
+	{
+		return $this->belongsToMany(Author::class);
 	}
 }
