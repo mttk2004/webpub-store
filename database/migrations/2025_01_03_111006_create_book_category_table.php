@@ -9,11 +9,17 @@ return new class extends Migration {
 	public function up(): void
 	{
 		Schema::create('book_category', function (Blueprint $table) {
-			$table->id();
-			
-			
-			
-			$table->timestamps();
+			$table->bigInteger('book_id')->unsigned();
+			$table->foreign('book_id')
+				  ->references('id')
+				  ->on('books')
+				  ->onDelete('cascade')
+				  ->onUpdate('cascade');
+			$table->foreignId('category_id')
+				  ->constrained()
+				  ->onDelete('cascade')
+				  ->onUpdate('cascade');
+			$table->primary(['book_id', 'category_id']);
 		});
 	}
 	
