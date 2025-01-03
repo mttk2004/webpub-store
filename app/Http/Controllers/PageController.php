@@ -10,7 +10,7 @@ class PageController extends Controller
 {
 	public function home()
 	{
-		$latestBooks = Book::latest()->take(10)->get();
+		$latestBooks = Book::latest('publication_date')->take(10)->get();
 		return view('home', compact('latestBooks'));
 	}
 }

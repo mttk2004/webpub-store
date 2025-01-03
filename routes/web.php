@@ -1,32 +1,22 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Guest\BookController;
-use App\Http\Controllers\Guest\CategoryController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+Auth::routes();
 
-Route::group(['middleware' => 'guest'], function () {
-	// Đăng nhập và đăng ký
-	Auth::routes();
-	
+Route::group(['middleware' => 'guest_or_customer'], function () {
 	// Hiển thị sách và thể loại
-	Route::resource('books', BookController::class)->only(['index', 'show']);
-	Route::resource('categories', CategoryController::class)->only(['index', 'show']);
-	
-	// Authentication
-	Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-	Route::post('login', [LoginController::class, 'login']);
-	
-	// Registration
-	Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-	Route::post('register', [RegisterController::class, 'register']);
+	Route::resource('books', BookController::class)->only(['show']);
+	Route::resource('categories', CategoryController::class)->only(['show']);
 });
 
-Route::group(['middleware' => 'auth'], function () {
-	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+Route::group(['middleware' => 'customer'], function () {
+	// Thêm sách vào giỏ hàng
+	Route::post('cart/{book}', [BookController::class, 'addToCart'])
+		 ->name('cart.add');
 });
