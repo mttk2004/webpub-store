@@ -16,12 +16,6 @@ class BookStatisticFactory extends Factory
 	public function definition(): array
 	{
 		return [
-				'average_rating' => $this->faker->randomFloat(),
-				'total_sold' => $this->faker->randomNumber(),
-				'total_view' => $this->faker->randomNumber(),
-				'total_revenue' => $this->faker->randomFloat(),
-				'last_ordered_at' => Carbon::now(),
-				
 				'book_id' => Book::factory(),
 		];
 	}

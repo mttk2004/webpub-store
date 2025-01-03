@@ -28,11 +28,4 @@ class BookStatistic extends Model
 	{
 		return $this->belongsTo(Book::class);
 	}
-	
-	protected function casts(): array
-	{
-		return [
-				'last_ordered_at' => 'timestamp',
-		];
-	}
 }
