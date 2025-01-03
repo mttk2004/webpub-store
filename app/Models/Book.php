@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -31,6 +32,27 @@ class Book extends Model
 					'edition',
 					'publication_date',
 			];
+	
+	protected function hasDiscount(): Attribute
+	{
+		return Attribute::get(fn() => $this->discount_id !== null);
+	}
+	
+	protected function priceWithDiscount(): Attribute
+	{
+		return Attribute::get(fn() => $this->hasDiscount() ?
+				$this->discount->apply($this->price) : $this->price);
+	}
+	
+	protected function authorNames(): Attribute
+	{
+		return Attribute::get(fn() => $this->authors->pluck('name')->toArray());
+	}
+	
+	protected function publisherName(): Attribute
+	{
+		return Attribute::get(fn() => $this->publisher->name);
+	}
 	
 	public function category(): BelongsTo
 	{

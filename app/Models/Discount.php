@@ -26,6 +26,13 @@ class Discount extends Model
 					'max_discount_amount',
 			];
 	
+	public function apply(float $price): float
+	{
+		// Apply discount logic here
+		return $this->type === 'percentage' ?
+				$price - ($price * $this->value / 100) : $price - $this->value;
+	}
+	
 	public function casts(): array
 	{
 		return [
