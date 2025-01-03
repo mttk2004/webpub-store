@@ -3,8 +3,16 @@
     <x-section-heading
         title="Có gì mới?"
         subtitle="Bản phát hành mới nhất của chúng tôi trong vài tháng qua."
-    />
+    >
+      <span class="inline-flex gap-4">
+        <span class="text-gray-700">Top 10 mới nhất</span>
+        <span class="text-gray-500">|</span>
+        <a href=""
+           class="text-brand-700">Xem tất cả &rarr;</a>
+      </span>
+    </x-section-heading>
 
+    <x-carousel-book :books="$latestBooks" />
     <x-list-book />
   </x-container>
 
@@ -14,15 +22,15 @@
         subtitle="Các sản phẩm phát triển web được khách hàng đánh giá cao nhất của chúng tôi."
     />
 
-    <x-list-book />
   </x-container>
 
   <section aria-labelledby="perks-heading" class="border-t border-gray-200 bg-gray-50">
     <h2 id="perks-heading" class="sr-only">Đặc quyền của bạn</h2>
 
     <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 space-y-12">
-      <x-section-heading title="Đặc quyền của bạn"
-                         subtitle="Những lợi ích mà bạn sẽ nhận được khi mua hàng tại chúng tôi." />
+      <x-section-heading
+          title="Đặc quyền của bạn"
+          subtitle="Những lợi ích mà bạn sẽ nhận được khi mua hàng tại chúng tôi." />
       <div
           class="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0">
         <div class="text-center md:flex md:items-start md:text-left lg:block lg:text-center">
@@ -96,22 +104,4 @@
       </div>
     </div>
   </section>
-
-  <x-container class="py-12">
-    <x-section-heading
-        title="Tin tức"
-        subtitle="Những tin tức mới nhất về công nghệ và phát triển web."
-    />
-
-    <x-carousel gap="8" loop="true">
-      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
-      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
-      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
-      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
-      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
-      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
-      <div class="inline-block absolute w-48 sm:w-52 md:w-56 h-[29.4rem]"><x-card-book/></div>
-
-    </x-carousel>
-  </x-container>
 </x-layout>

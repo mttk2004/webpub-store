@@ -23,7 +23,8 @@
     <p class="font-medium">Tất cả các tuyến đường Laravel được xác định trong các tệp tuyến đường của bạn, nằm trong thư mục routes thư mục. Các tệp này được Laravel tự động tải bằng cách sử dụng cấu hình được chỉ định trong tệp ứng dụng của bạn. bootstrap/app.php tài liệu. các routes/web.php file xác định các tuyến dành cho giao diện web của bạn. Các tuyến đường này được gán web nhóm phần mềm trung gian , cung cấp các tính năng như trạng thái phiên và bảo vệ CSRF.
 
         Đối với hầu hết các ứng dụng, bạn sẽ bắt đầu bằng việc xác định các tuyến đường trong routes/web.php tài liệu. Các tuyến đường được xác định trong routes/web.php có thể được truy cập bằng cách nhập URL của tuyến đường đã xác định vào trình duyệt của bạn. Ví dụ: bạn có thể truy cập tuyến đường sau bằng cách điều hướng đến http://example.com/user trong trình duyệt của bạn: </p>
-    <a href="{{ route('books.index') }}">Back</a>
+
+    <a href="{{ url()->previous() }}" class="text-blue-500">Back</a>
 </body>
 
 </html>

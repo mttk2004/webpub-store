@@ -26,28 +26,11 @@
       <a href="#" class="text-base leading-6 text-gray-700
       hover:text-brand-700">Trang chủ</a>
       <x-flyout-menu
-          :items="[
-          ['name' => 'Java', 'url' => '#'],
-          ['name' => 'C#', 'url' => '#'],
-          ['name' => 'PHP', 'url' => '#'],
-          ['name' => 'JavaScript', 'url' => '#'],
-          ['name' => 'TypeScript', 'url' => '#'],
-          ['name' => 'HTML', 'url' => '#'],
-          ['name' => 'CSS', 'url' => '#'],
-          ['name' => 'Go', 'url' => '#'],
-          ['name' => 'Ruby', 'url' => '#'],
-      ]">
+          :items="$languageItems">
         Ngôn ngữ
       </x-flyout-menu>
       <x-flyout-menu
-          :items="[
-          ['name' => 'React', 'url' => '#'],
-          ['name' => 'Vue', 'url' => '#'],
-          ['name' => 'Angular', 'url' => '#'],
-          ['name' => 'ASP.NET', 'url' => '#'],
-          ['name' => 'Spring', 'url' => '#'],
-          ['name' => 'Laravel', 'url' => '#'],
-      ]">
+          :items="$toolItems">
         Công nghệ
       </x-flyout-menu>
       <a href="#" class="text-base leading-6 text-gray-700
