@@ -11,6 +11,10 @@ class CustomerMiddleware
 {
 	public function handle(Request $request, Closure $next)
 	{
+		if (!auth()->check() || auth()->user()->role !== 'customer') {
+			abort(403);
+		}
+		
 		return $next($request);
 	}
 }

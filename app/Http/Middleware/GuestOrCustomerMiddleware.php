@@ -11,6 +11,10 @@ class GuestOrCustomerMiddleware
 {
 	public function handle(Request $request, Closure $next)
 	{
-		return $next($request);
+		if (auth()->guest() || (auth()->check() && auth()->user()->role === 'customer')) {
+			return $next($request);
+		}
+		
+		abort(403);
 	}
 }
